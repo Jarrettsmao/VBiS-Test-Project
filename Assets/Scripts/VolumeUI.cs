@@ -13,15 +13,26 @@ public class VolumeUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        float startVolume = 0.5f;
+        audioSource.volume = startVolume;
+
+        //assign volumetext
         volumeText = volumeSlider.GetComponentInChildren<TextMeshProUGUI>();
-        // volumeSlider.onValueChanged.AddListener(UpdateVolume);
-        // volumeSlider.value = audioSource.volume * 100.0f;
-        // UpdateVolume(volumeSlider.value);
+
+        //ensure slider linked to volume updates
+        volumeSlider.onValueChanged.AddListener(UpdateVolume);
+
+        //update text on start
+        volumeSlider.value = audioSource.volume;
+        
+        UpdateVolume(volumeSlider.value);
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateVolume(float value)
     {
-        
+        audioSource.volume = value;
+
+        int volumeOutOf100 = Mathf.RoundToInt(value * 100f);
+        volumeText.text = $"Volume: {volumeOutOf100}";
     }
 }

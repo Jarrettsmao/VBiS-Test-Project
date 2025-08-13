@@ -7,7 +7,12 @@ public class TouchAudio : MonoBehaviour
     public AudioSource audioSource;
     private bool playing = false;
 
-    // Update is called once per frame
+    public CubeGlow cubeGlow;
+
+    void Start()
+    {
+        cubeGlow = GetComponent<CubeGlow>();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -25,17 +30,19 @@ public class TouchAudio : MonoBehaviour
 
     private void OnCubePressed()
     {
-        Debug.Log("Cube touched!");
+        // Debug.Log("Cube touched!");
 
         if (playing == false)
         {
             audioSource.Play();
             playing = true;
+            cubeGlow.SetActiveState(true);
         }
         else
         {
             audioSource.Pause();
             playing = false;
+            cubeGlow.SetActiveState(false);
         }    
     }
 }

@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 510118636}
   - component: {fileID: 510118641}
   - component: {fileID: 510118642}
+  - component: {fileID: 510118643}
   m_Layer: 0
   m_Name: AudioCube
   m_TagString: Untagged
@@ -421,7 +422,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.1608848, y: -0.39577162, z: 0.07538032, w: 0.90099883}
   m_LocalPosition: {x: 24.04, y: -4.41, z: -317.76}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -439,6 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 510118642}
+  cubeGlow: {fileID: 0}
 --- !u!82 &510118642
 AudioSource:
   m_ObjectHideFlags: 0
@@ -535,6 +537,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &510118643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510118635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 792b85c7ef4146c4dadc507b86ad4c16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowColor: {r: 0, g: 1, b: 1, a: 1}
+  glowSpeed: 4
+  glowIntensity: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,9 +1047,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 996340219}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1136,7 +1153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Volume: 100'
+  m_text: 'Volume: 50'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
