@@ -36,13 +36,13 @@ public class TouchAudio : MonoBehaviour
         {
             audioSource.Play();
             playing = true;
-            cubeGlow.SetActiveState(true);
+            // cubeGlow.SetActiveState(true);
         }
         else
         {
             audioSource.Pause();
             playing = false;
-            cubeGlow.SetActiveState(false);
+            // cubeGlow.SetActiveState(false);
         }    
     }
 }
