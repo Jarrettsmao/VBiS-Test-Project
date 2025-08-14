@@ -9,6 +9,7 @@ public class VolumeUI : MonoBehaviour
     public Slider volumeSlider;
     public TextMeshProUGUI volumeText;
     public AudioSource audioSource;
+    public TouchAudio cube;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,21 @@ public class VolumeUI : MonoBehaviour
         UpdateVolume(volumeSlider.value);
     }
 
-    void UpdateVolume(float value)
+    public void UpdateVolume(float value)
     {
-        audioSource.volume = value;
+        audioSource.volume = Mathf.Clamp01(value);
 
         int volumeOutOf100 = Mathf.RoundToInt(value * 100f);
         volumeText.text = $"Volume: {volumeOutOf100}";
+        volumeSlider.value = audioSource.volume;
+
+        cube.UpdateCubeFromVolume(audioSource.volume);
+
+        //Move and scale cube based on the same value
+        // if (cube != null)
+        // {
+        //     float newY = Mathf.Lerp(minY, maxY, value); //map 0-1 to cube Y
+        //     float targetScale = ba
+        // }
     }
 }

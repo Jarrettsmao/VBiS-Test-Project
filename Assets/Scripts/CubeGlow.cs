@@ -9,7 +9,7 @@ public class CubeGlow : MonoBehaviour
     public Color glowColor = Color.cyan; //color of glow
     public float minEmission = 0.01f; //dim state
     public float sensitivity = 40f; // boosts loudness
-    public float maxEmission = 1.5f; //bright state
+    public float maxEmission = 0.75f; //bright state
     public float glowSmooth = 12f; //how fast it reacts
 
     private float smoothedRMS = 0f;
@@ -66,7 +66,7 @@ public class CubeGlow : MonoBehaviour
         // smoothedRMS = Mathf.Lerp(smoothedRMS, rms, Time.deltaTime * smoothingSpeed)
 
         //exaggerate contrast
-        float threshold = 0.02f;
+        float threshold = 0.3f;
         float loudness = Mathf.Clamp01(rms * sensitivity - threshold) / (1 - threshold);
         loudness = Mathf.Max(minEmission, loudness);
 
